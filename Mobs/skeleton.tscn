@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dmscq8hm0dtg3" path="res://oak_woods_v1.0/Skeleton/Walk.png" id="4_cjg8j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gikci"]
-radius = 34.0
-height = 102.0
+radius = 31.999985
+height = 80.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3usgg"]
 atlas = ExtResource("1_wwbpb")
@@ -138,8 +138,8 @@ scale = Vector2(1.0000001, 1)
 shape = SubResource("CapsuleShape2D_gikci")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(162.99998, 127.00001)
-scale = Vector2(1.9133334, 1.7666667)
+position = Vector2(163, 128)
+scale = Vector2(1.8433336, 1.37)
 sprite_frames = SubResource("SpriteFrames_md1ud")
 animation = &"Idle"
 autoplay = "Idle"
@@ -147,7 +147,7 @@ autoplay = "Idle"
 [node name="Detector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
-position = Vector2(168, 128)
+position = Vector2(170, 129)
 shape = SubResource("CircleShape2D_wwbpb")
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
