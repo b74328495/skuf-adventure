@@ -133,12 +133,10 @@ radius = 368.2662
 script = ExtResource("1_7hjwy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(169, 130)
 scale = Vector2(1.0000001, 1)
 shape = SubResource("CapsuleShape2D_gikci")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(163, 128)
 scale = Vector2(1.8433336, 1.37)
 sprite_frames = SubResource("SpriteFrames_md1ud")
 animation = &"Idle"
@@ -147,7 +145,6 @@ autoplay = "Idle"
 [node name="Detector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
-position = Vector2(170, 129)
 shape = SubResource("CircleShape2D_wwbpb")
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
