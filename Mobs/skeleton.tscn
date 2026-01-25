@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://c5su8suhe0pj5"]
 
-[ext_resource type="Script" uid="uid://byfo5gn4uvxrb" path="res://skeleton.gd" id="1_7hjwy"]
+[ext_resource type="Script" uid="uid://byfo5gn4uvxrb" path="res://Mobs/skeleton.gd" id="1_7hjwy"]
 [ext_resource type="Texture2D" uid="uid://c34d3j1ado61f" path="res://oak_woods_v1.0/Skeleton/Take Hit.png" id="1_wwbpb"]
 [ext_resource type="Texture2D" uid="uid://bh530nmakx2nk" path="res://oak_woods_v1.0/Skeleton/Death.png" id="2_7hjwy"]
 [ext_resource type="Texture2D" uid="uid://vsw5mxroojh2" path="res://oak_woods_v1.0/Skeleton/Idle.png" id="3_k1f85"]
@@ -133,12 +133,10 @@ radius = 368.2662
 script = ExtResource("1_7hjwy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(169, 130)
 scale = Vector2(1.0000001, 1)
 shape = SubResource("CapsuleShape2D_gikci")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(163, 128)
 scale = Vector2(1.8433336, 1.37)
 sprite_frames = SubResource("SpriteFrames_md1ud")
 animation = &"Idle"
@@ -147,7 +145,6 @@ autoplay = "Idle"
 [node name="Detector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
-position = Vector2(170, 129)
 shape = SubResource("CircleShape2D_wwbpb")
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

@@ -448,7 +448,7 @@ layer_0/tile_data = PackedInt32Array(2097104, 131072, 0, 2097105, 131072, 0, 209
 [node name="Player" type="Node2D" parent="."]
 
 [node name="player" parent="Player" instance=ExtResource("2_oi3di")]
-position = Vector2(-138, -2)
+position = Vector2(184, 481)
 script = ExtResource("3_0b4ue")
 
 [node name="Mobs" type="Node2D" parent="."]
