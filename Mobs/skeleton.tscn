@@ -1,14 +1,47 @@
-[gd_scene load_steps=23 format=3 uid="uid://c5su8suhe0pj5"]
+[gd_scene format=3 uid="uid://c5su8suhe0pj5"]
 
 [ext_resource type="Script" uid="uid://byfo5gn4uvxrb" path="res://Mobs/skeleton.gd" id="1_7hjwy"]
 [ext_resource type="Texture2D" uid="uid://c34d3j1ado61f" path="res://oak_woods_v1.0/Skeleton/Take Hit.png" id="1_wwbpb"]
 [ext_resource type="Texture2D" uid="uid://bh530nmakx2nk" path="res://oak_woods_v1.0/Skeleton/Death.png" id="2_7hjwy"]
 [ext_resource type="Texture2D" uid="uid://vsw5mxroojh2" path="res://oak_woods_v1.0/Skeleton/Idle.png" id="3_k1f85"]
 [ext_resource type="Texture2D" uid="uid://dmscq8hm0dtg3" path="res://oak_woods_v1.0/Skeleton/Walk.png" id="4_cjg8j"]
+[ext_resource type="Texture2D" uid="uid://dy5d8ea8ou7ue" path="res://oak_woods_v1.0/Skeleton/Attack.png" id="6_k1f85"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gikci"]
-radius = 31.999985
-height = 80.0
+radius = 27.999996
+height = 74.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1f85"]
+atlas = ExtResource("6_k1f85")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjg8j"]
+atlas = ExtResource("6_k1f85")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gikci"]
+atlas = ExtResource("6_k1f85")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md1ud"]
+atlas = ExtResource("6_k1f85")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3dga"]
+atlas = ExtResource("6_k1f85")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsi8e"]
+atlas = ExtResource("6_k1f85")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htqgt"]
+atlas = ExtResource("6_k1f85")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cmde"]
+atlas = ExtResource("6_k1f85")
+region = Rect2(1050, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3usgg"]
 atlas = ExtResource("1_wwbpb")
@@ -70,6 +103,35 @@ region = Rect2(450, 0, 150, 150)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_k1f85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjg8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gikci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md1ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3dga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsi8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htqgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cmde")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3usgg")
 }, {
 "duration": 1.0,
@@ -104,7 +166,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oag0n")
 }],
-"loop": true,
+"loop": false,
 "name": &"Idle",
 "speed": 10.0
 }, {
@@ -127,25 +189,35 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wwbpb"]
-radius = 368.2662
+radius = 129.0155
 
-[node name="skeleton" type="CharacterBody2D"]
+[node name="skeleton" type="CharacterBody2D" unique_id=103380449]
 script = ExtResource("1_7hjwy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1174335109]
 scale = Vector2(1.0000001, 1)
 shape = SubResource("CapsuleShape2D_gikci")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.8433336, 1.37)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1755646354]
+position = Vector2(-5, 2)
+scale = Vector2(1.5585363, 1.1583333)
 sprite_frames = SubResource("SpriteFrames_md1ud")
-animation = &"Idle"
+animation = &"Attack"
 autoplay = "Idle"
 
-[node name="Detector" type="Area2D" parent="."]
+[node name="Detector" type="Area2D" parent="." unique_id=1596032509]
+position = Vector2(38, 11)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=1906771920]
+position = Vector2(-37, -11)
 shape = SubResource("CircleShape2D_wwbpb")
+
+[node name="HPBar" type="ProgressBar" parent="." unique_id=2071945154]
+offset_left = -21.0
+offset_top = -42.0
+offset_right = 32.0
+offset_bottom = -34.0
+show_percentage = false
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
 [connection signal="body_exited" from="Detector" to="." method="_on_detector_body_exited"]

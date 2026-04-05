@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpfde0pp2okru"]
+[gd_scene format=3 uid="uid://bpfde0pp2okru"]
 
 [ext_resource type="Script" uid="uid://cd1o7cbulsqgk" path="res://menu.gd" id="1_lti8b"]
 [ext_resource type="Texture2D" uid="uid://btqr0ea5nwo4l" path="res://Copilot_20251109_175347.png" id="2_ouk20"]
@@ -8,11 +8,11 @@
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mae5d"]
 
-[node name="2d nod" type="Node2D"]
+[node name="2d nod" type="Node2D" unique_id=602036494]
 position = Vector2(637.00006, 138.00002)
 scale = Vector2(0.750651, 0.63183594)
 
-[node name="quit" type="Button" parent="."]
+[node name="quit" type="Button" parent="." unique_id=1239650745]
 offset_left = -788.64886
 offset_top = 267.47446
 offset_right = -473.19647
@@ -21,7 +21,7 @@ theme_override_font_sizes/font_size = 50
 text = "quit
 "
 
-[node name="play" type="Button" parent="."]
+[node name="play" type="Button" parent="." unique_id=1125298105]
 offset_left = -799.3063
 offset_top = 129.7805
 offset_right = -475.8678
@@ -29,26 +29,26 @@ offset_bottom = 242.37813
 theme_override_font_sizes/font_size = 50
 text = "PLAY"
 
-[node name="Copilot20251109175347" type="Sprite2D" parent="."]
+[node name="Copilot20251109175347" type="Sprite2D" parent="." unique_id=801642061]
 position = Vector2(-632.784, 183.592)
 scale = Vector2(0.38092032, 0.3218918)
 texture = ExtResource("2_ouk20")
 
-[node name="Copilot20251109175546" type="Sprite2D" parent="Copilot20251109175347"]
+[node name="Copilot20251109175546" type="Sprite2D" parent="Copilot20251109175347" unique_id=424364259]
 position = Vector2(-4864.5337, -7194.9644)
 scale = Vector2(0.9331838, 1.0936929)
 texture = SubResource("CompressedTexture2D_mae5d")
 
-[node name="Copilot20251109180251" type="Sprite2D" parent="Copilot20251109175347/Copilot20251109175546"]
+[node name="Copilot20251109180251" type="Sprite2D" parent="Copilot20251109175347/Copilot20251109175546" unique_id=1476912224]
 position = Vector2(5220.3247, 6960.36)
 scale = Vector2(1.1080014, 0.72572815)
 texture = ExtResource("3_mae5d")
 
-[node name="Menu" type="Node2D" parent="."]
+[node name="Menu" type="Node2D" parent="." unique_id=1803024267]
 scale = Vector2(0.9999999, 0.9999999)
 script = ExtResource("1_lti8b")
 
-[node name="BG" parent="." instance=ExtResource("4_4hy44")]
+[node name="BG" parent="." unique_id=148887175 instance=ExtResource("4_4hy44")]
 script = ExtResource("5_ytr4m")
 
 [connection signal="pressed" from="quit" to="Menu" method="_on_quit_pressed"]

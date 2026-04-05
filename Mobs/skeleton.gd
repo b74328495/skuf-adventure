@@ -1,42 +1,119 @@
 extends CharacterBody2D
 
-# Исправлен путь: 2d вместо 2D. Добавлено значение 980 как запасное.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity", 980)
-var speed = 150 
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var speed = 80       
+var health = 160      
+var damage = 10      
+var attack_range = 60 
+
+var is_attacking = false 
+
 @onready var anim = $AnimatedSprite2D
 var player = null 
 
+@onready var hp_bar = get_node_or_null("HPBar")
+
+func _ready():
+	# === Настройка полоски здоровья и КРАСНОГО цвета ===
+	if hp_bar:
+		hp_bar.max_value = health
+		hp_bar.value = health
+		hp_bar.show_percentage = false # Убираем цифры
+		
+		# Делаем красную полоску
+		var fill_style = StyleBoxFlat.new()
+		fill_style.bg_color = Color(0.8, 0.1, 0.1) # Красный цвет
+		hp_bar.add_theme_stylebox_override("fill", fill_style)
+		
+		# Делаем темный фон под полоской
+		var bg_style = StyleBoxFlat.new()
+		bg_style.bg_color = Color(0.1, 0.1, 0.1, 0.8) # Темно-серый
+		hp_bar.add_theme_stylebox_override("background", bg_style)
+
+	print("------------------------------------------------")
+	print("ВАШИ АНИМАЦИИ СКЕЛЕТА:")
+	print(anim.sprite_frames.get_animation_names())
+	print("------------------------------------------------")
+
 func _physics_process(delta):
-	# 1. Применяем гравитацию
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-	# 2. Логика преследования
+	if health <= 0: return
+
+	if is_attacking:
+		velocity.x = 0
+		move_and_slide()
+		return 
+
 	if player != null:
-		# Вычисляем направление к игроку
+		var distance = self.global_position.distance_to(player.global_position)
 		var direction = (player.global_position - self.global_position).normalized()
 		
-		velocity.x = direction.x * speed
-		
-		# Анимация и разворот
-		anim.play("Run")
-		if direction.x < 0:
-			anim.flip_h = true
-		elif direction.x > 0:
-			anim.flip_h = false
+		if distance > attack_range:
+			velocity.x = direction.x * speed
+			
+			if direction.x < 0: anim.flip_h = true
+			else: anim.flip_h = false
+			
+			if anim.animation != "Run": 
+				if anim.sprite_frames.has_animation("Run"): anim.play("Run")
+				elif anim.sprite_frames.has_animation("Walk"): anim.play("Walk")
+		else:
+			velocity.x = 0
+			start_attack()
 	else:
-		# Остановка, если игрока нет
 		velocity.x = move_toward(velocity.x, 0, speed)
-		anim.play("Idle")
+		if anim.animation != "Idle": 
+			if anim.sprite_frames.has_animation("Idle"): anim.play("Idle")
 			
 	move_and_slide()
 
-# Когда игрок входит в зону детектора
+func start_attack():
+	is_attacking = true 
+	
+	if anim.sprite_frames.has_animation("Attack"):
+		anim.play("Attack")
+	else:
+		anim.modulate = Color(1, 0, 0) 
+	
+	await get_tree().create_timer(0.6).timeout
+	
+	if player != null and global_position.distance_to(player.global_position) <= attack_range + 20:
+		if player.has_method("take_damage"):
+			player.take_damage(damage)
+
+	await get_tree().create_timer(0.2).timeout
+	
+	is_attacking = false 
+	anim.play("Idle") 
+
+func take_damage(amount):
+	health -= amount
+	
+	if hp_bar:
+		hp_bar.value = health
+		
+	anim.modulate = Color(1, 0, 0)
+	await get_tree().create_timer(0.2).timeout
+	anim.modulate = Color(1, 1, 1)
+	if health <= 0: die()
+
+func die():
+	set_physics_process(false)
+	
+	if hp_bar:
+		hp_bar.hide()
+		
+	if anim.sprite_frames.has_animation("Death"):
+		anim.play("Death")
+	await get_tree().create_timer(1.0).timeout
+	queue_free()
+
 func _on_detector_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D and body != self:
+	if body.name == "skuf" or body.name == "Player":
 		player = body
 
-# Когда игрок выходит из зоны
 func _on_detector_body_exited(body: Node2D) -> void:
 	if body == player:
 		player = null

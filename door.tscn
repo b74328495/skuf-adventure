@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cpmwvjovvligq"]
+
+[ext_resource type="Script" uid="uid://ub1t5u5ye0wh" path="res://door.gd" id="1_ba8gm"]
+[ext_resource type="Texture2D" uid="uid://blqjdvmtnj2io" path="res://icon.svg" id="2_v6xrn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hun61"]
+size = Vector2(55, 99)
+
+[node name="Door" type="Area2D" unique_id=931370444]
+script = ExtResource("1_ba8gm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1963909380]
+shape = SubResource("RectangleShape2D_hun61")
+debug_color = Color(0.5809201, 0.8177448, 0.9566836, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1745092759]
+position = Vector2(1.1920929e-07, -9.536743e-07)
+scale = Vector2(0.41249996, 0.76562506)
+texture = ExtResource("2_v6xrn")
+
+[node name="Label" type="Label" parent="." unique_id=752312869]
+offset_left = 11.0
+offset_top = -82.0
+offset_right = 98.0
+offset_bottom = -59.0
+text = "E"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
