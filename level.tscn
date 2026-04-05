@@ -3357,7 +3357,7 @@ wait_time = 20.0
 autostart = true
 
 [node name="skuf" parent="." unique_id=1785520827 instance=ExtResource("2_oi3di")]
-position = Vector2(250, 516)
+position = Vector2(257, 506)
 
 [node name="skeleton" parent="." unique_id=1599631265 instance=ExtResource("5_f2txt")]
 position = Vector2(911, 516)
@@ -3408,7 +3408,7 @@ texture = ExtResource("13_4c15r")
 position = Vector2(534, 531)
 
 [node name="Door" parent="." unique_id=931370444 instance=ExtResource("10_8cye3")]
-position = Vector2(70, 606)
+position = Vector2(104, 590)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=446022606]
 
@@ -3460,6 +3460,7 @@ texture = ExtResource("19_ait7k")
 wait_time = 20.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=50521657]
+position = Vector2(0, 3)
 occluder = SubResource("OccluderPolygon2D_ait7k")
 
 [node name="Collectibles" type="Node2D" parent="." unique_id=1556940634]
