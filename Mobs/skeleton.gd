@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed = 80       
-var health = 160      
+var health = 100      
 var damage = 10      
 var attack_range = 60 
 

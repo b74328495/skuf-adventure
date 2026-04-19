@@ -336,6 +336,7 @@ occluder = SubResource("OccluderPolygon2D_7tvcv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1380757625]
 scale = Vector2(1.4938383, 1.7154123)
+offset = Vector2(0, 80)
 zoom = Vector2(2.4, 2.4)
 limit_left = -5000
 limit_right = 5000

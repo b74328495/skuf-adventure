@@ -3348,7 +3348,7 @@ theme_override_font_sizes/font_size = 80
 [node name="Mobs" type="Node2D" parent="." unique_id=1027660978]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1411000413]
-energy = 0.13
+energy = 0.7
 blend_mode = 1
 range_layer_min = -1
 
@@ -3472,6 +3472,14 @@ position = Vector2(333, 628)
 [node name="Timer" type="Timer" parent="Collectibles" unique_id=148612732]
 wait_time = 3.0
 autostart = true
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=674691560]
+position = Vector2(1094, 590)
+scale = Vector2(0.8135937, 0.8135937)
+color = Color(0.97454816, 0.7565361, 0.73800004, 1)
+energy = 2.23
+shadow_enabled = true
+texture = ExtResource("19_ait7k")
 
 [connection signal="timeout" from="DirectionalLight2D/DayNight" to="." method="_on_day_night_timeout"]
 [connection signal="timeout" from="Collectibles/Timer" to="Collectibles" method="_on_timer_timeout"]

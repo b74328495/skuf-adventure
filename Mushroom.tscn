@@ -236,27 +236,24 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_avi24"]
-radius = 184.04347
+radius = 180.01111
 
 [node name="Mushroom" type="CharacterBody2D" unique_id=595918482]
 script = ExtResource("1_avi24")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=10772242]
-position = Vector2(549, 113)
 shape = SubResource("CapsuleShape2D_nqt4b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1001010470]
-position = Vector2(549, 97)
+position = Vector2(-5.9604645e-08, -15)
 scale = Vector2(2.14, 2.14)
 sprite_frames = SubResource("SpriteFrames_qh287")
-animation = &"Take Hit"
-frame = 3
-frame_progress = 1.0
+animation = &"Idle"
 
 [node name="Detector" type="Area2D" parent="." unique_id=425525318]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=776779262]
-position = Vector2(545, 113)
+position = Vector2(2, 0)
 shape = SubResource("CircleShape2D_avi24")
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

@@ -206,7 +206,7 @@ radius = 145.00345
 [node name="Flying eye" type="CharacterBody2D" unique_id=1404964019]
 script = ExtResource("1_3dqwo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=772262811]
+[node name="BodyShape" type="CollisionShape2D" parent="." unique_id=772262811]
 position = Vector2(5, -1)
 shape = SubResource("CircleShape2D_yjju8")
 
@@ -218,7 +218,7 @@ animation = &"Flying"
 
 [node name="Detector" type="Area2D" parent="." unique_id=909401216]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=1531703515]
+[node name="DetectorShape" type="CollisionShape2D" parent="Detector" unique_id=1531703515]
 position = Vector2(2, 0)
 shape = SubResource("CircleShape2D_3dqwo")
 
