@@ -2,24 +2,24 @@
 
 [ext_resource type="Script" uid="uid://brhph3c4lvvpm" path="res://level.gd" id="1_n6hdu"]
 [ext_resource type="Script" uid="uid://ci2tgke2pr34k" path="res://day_text.gd" id="2_km5ld"]
-[ext_resource type="PackedScene" uid="uid://yohnoa40kef2" path="res://skuf.tscn" id="2_oi3di"]
+[ext_resource type="PackedScene" path="res://skuf.tscn" id="2_oi3di"]
 [ext_resource type="Texture2D" uid="uid://qglsggq571gi" path="res://oak_woods_v1.0/oak_woods_tileset.png" id="3_n6hdu"]
 [ext_resource type="PackedScene" uid="uid://bpi6a5kuw4nsj" path="res://bg.tscn" id="4_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://c5su8suhe0pj5" path="res://Mobs/skeleton.tscn" id="5_f2txt"]
 [ext_resource type="Texture2D" uid="uid://bqdfhyqvbfel8" path="res://assets/kenney_platformer-art-extended-tileset/preview.png" id="5_i2t4f"]
 [ext_resource type="PackedScene" uid="uid://ddys27smiwgbf" path="res://Build/shop.tscn" id="6_1ainy"]
 [ext_resource type="Texture2D" uid="uid://dlfjvyntrsrtm" path="res://assets/kenney_platformer-art-winter/preview.png" id="6_5pxul"]
-[ext_resource type="Script" uid="uid://c0n4es71pehqq" path="res://Build/shop.gd" id="7_5pxul"]
-[ext_resource type="PackedScene" uid="uid://b51cnglcfub6c" path="res://Mushroom.tscn" id="8_km5ld"]
-[ext_resource type="PackedScene" uid="uid://cpmwvjovvligq" path="res://door.tscn" id="10_8cye3"]
+[ext_resource type="Script" path="res://Build/shop.gd" id="7_5pxul"]
+[ext_resource type="PackedScene" path="res://Mushroom.tscn" id="8_km5ld"]
+[ext_resource type="PackedScene" path="res://door.tscn" id="10_8cye3"]
 [ext_resource type="Texture2D" uid="uid://w8lqm5m6rws0" path="res://oak_woods_v1.0/decorations/rock_1.png" id="13_4c15r"]
 [ext_resource type="Texture2D" uid="uid://cdfvtvr22urrw" path="res://oak_woods_v1.0/decorations/lamp.png" id="14_ait7k"]
 [ext_resource type="Texture2D" uid="uid://b3sns2fcsaaj8" path="res://oak_woods_v1.0/decorations/rock_2.png" id="15_42xju"]
 [ext_resource type="Texture2D" uid="uid://b0uukbol2c57g" path="res://oak_woods_v1.0/decorations/rock_3.png" id="16_v7sqt"]
 [ext_resource type="Texture2D" uid="uid://be3tftwwn7ykf" path="res://oak_woods_v1.0/decorations/sign.png" id="17_fedht"]
-[ext_resource type="PackedScene" uid="uid://ba3d6v03jekuk" path="res://Flying eye.tscn" id="18_4c15r"]
+[ext_resource type="PackedScene" path="res://Flying eye.tscn" id="18_4c15r"]
 [ext_resource type="Texture2D" uid="uid://d2k5g4ljiiwo6" path="res://oak_woods_v1.0/decorations/circle.png" id="19_ait7k"]
-[ext_resource type="PackedScene" uid="uid://c81722c2k62cp" path="res://gold.tscn" id="20_42xju"]
+[ext_resource type="PackedScene" path="res://gold.tscn" id="20_42xju"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km5ld"]
 texture = ExtResource("3_n6hdu")
@@ -3224,20 +3224,6 @@ sources/0 = SubResource("TileSetAtlasSource_km5ld")
 sources/1 = SubResource("TileSetAtlasSource_8cye3")
 sources/3 = SubResource("TileSetAtlasSource_fedht")
 
-[sub_resource type="GDScript" id="GDScript_v7sqt"]
-script/source = "extends Label
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	text = \"HP: \" + str(get_node(\"/root/level/skuf\").health)
-"
-
 [sub_resource type="Animation" id="Animation_4c15r"]
 length = 0.001
 tracks/0/type = "value"
@@ -3412,15 +3398,6 @@ position = Vector2(104, 590)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=446022606]
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=123755551]
-offset_left = 12.0
-offset_top = 7.0
-offset_right = 86.0
-offset_bottom = 59.0
-theme_override_font_sizes/font_size = 30
-text = "HP"
-script = SubResource("GDScript_v7sqt")
-
 [node name="DayText" type="Label" parent="CanvasLayer" unique_id=379301631]
 modulate = Color(1, 1, 1, 0)
 offset_left = 452.0
@@ -3439,7 +3416,7 @@ offset_bottom = 23.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=732890317]
 libraries/ = SubResource("AnimationLibrary_v7sqt")
 
-[node name="Label2" type="Label" parent="CanvasLayer" unique_id=881391213]
+[node name="Health" type="Label" parent="CanvasLayer" unique_id=881391213]
 offset_left = 12.0
 offset_top = 40.0
 offset_right = 96.0
