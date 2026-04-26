@@ -19,6 +19,14 @@ run/main_scene="uid://bpfde0pp2okru"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
+[dotnet]
+
+project/assembly_name="first project"
+
+[global_group]
+
+player=""
+
 [input]
 
 interact={

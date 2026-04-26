@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://yohnoa40kef2"]
+[gd_scene format=3 uid="uid://ko88pjkv75w1"]
 
 [ext_resource type="Script" uid="uid://dxjijxdhib7s7" path="res://skuf.gd" id="1_i6b3y"]
 [ext_resource type="Texture2D" uid="uid://7a3hn2pku2ns" path="res://oak_woods_v1.0/character/char_blue.png" id="2_7tvcv"]
 [ext_resource type="Texture2D" uid="uid://d2k5g4ljiiwo6" path="res://oak_woods_v1.0/decorations/circle.png" id="3_7tvcv"]
-[ext_resource type="Script" uid="uid://bivp13w2dtc81" path="res://hp_bar.gd" id="3_qr4qw"]
+[ext_resource type="Script" path="res://hp_bar.gd" id="3_qr4qw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ij6vw"]
 radius = 23.0
@@ -295,7 +295,7 @@ size = Vector2(46, 63)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7tvcv"]
 polygon = PackedVector2Array(-9, 27, 11, 27, 12, 28, -9, 28)
 
-[node name="skuf" type="CharacterBody2D" unique_id=1785520827]
+[node name="skuf" type="CharacterBody2D" unique_id=1785520827 groups=["player"]]
 script = ExtResource("1_i6b3y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1557519031]
